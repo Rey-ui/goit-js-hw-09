@@ -23,7 +23,9 @@ function writeMasseg() {
         email: inputEl.value.trim(),
         message: textareaEl.value.trim()
     }
-    if ((formData.email.length > 0) || (formData.message.length > 0)) {
+    if (formData.email !== "" || formData.message !== "") {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(formData));
+    } else {
+        localStorage.removeItem(LOCAL_STORAGE_KEY);
     }
 }
