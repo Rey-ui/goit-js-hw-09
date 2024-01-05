@@ -15,8 +15,10 @@ function submitForm(event) {
 }
 window.addEventListener("load", () => {
     const saveLocalSotr = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || {};
-    inputEl.value = saveLocalSotr.email || "";
-    textareaEl.value = saveLocalSotr.message || "";
+    if (saveLocalSotr != null) {
+        inputEl.value = saveLocalSotr.email || "";
+        textareaEl.value = saveLocalSotr.message || "";
+    }
 })
 function writeMasseg() {
     formData = {
