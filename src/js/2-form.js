@@ -7,10 +7,12 @@ formEl.addEventListener("input", writeMasseg);
 formEl.addEventListener("submit", submitForm);
 function submitForm(event) {
     event.preventDefault();
-    localStorage.removeItem(LOCAL_STORAGE_KEY);
-    if (formData.email !== "" && formData.message !== "") {
-        console.log(formData);
+    if (formData.email === "" || formData.message === "") {
+        alert("Будьласка заповніть всі поля форми!");
+        return;
     }
+    localStorage.removeItem(LOCAL_STORAGE_KEY);
+    console.log(formData);
     event.currentTarget.reset();
 }
 window.addEventListener("load", () => {
